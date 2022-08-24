@@ -54,7 +54,7 @@ public class Ejercicio6Guia7POO {
                     cs.agregarCafe(c1);
                     break;
                 case 5:
-                    System.out.println("gracias por usar la cafetera");
+                    System.out.println("Gracias por usar Nespresso");
                     break;
                 }
          } while (operacion != 5);
