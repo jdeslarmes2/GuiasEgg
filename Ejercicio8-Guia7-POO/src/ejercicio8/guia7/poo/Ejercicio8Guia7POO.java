@@ -5,6 +5,9 @@
  */
 package ejercicio8.guia7.poo;
 
+import Etiquetas.Cadena;
+import Servicio.CadenaServicio;
+
 /**
  *
  * @author jdeslarmes
@@ -15,7 +18,22 @@ public class Ejercicio8Guia7POO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
+       
+        CadenaServicio cs = new CadenaServicio();
     
+        Cadena c1 = cs.crearCadena(); 
+        
+        cs.mostrarVocales(c1);
+        
+        cs.invertirFrase(c1);
+        
+        cs.vecesRepetido(c1);
+        
+        cs.compararFrase(c1);
+        
+        cs.unirFrase(c1);
+                
+        
+    }
+  
 }

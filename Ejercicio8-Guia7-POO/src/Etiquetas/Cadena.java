@@ -12,12 +12,12 @@ package Etiquetas;
 public class Cadena {
     
     private String frase;
-    private Double longitud;
+    private int longitud;
 
     public Cadena() {
     }
 
-    public Cadena(String frase, Double longitud) {
+    public Cadena(String frase, int longitud) {
         this.frase = frase;
         this.longitud = longitud;
     }
@@ -30,15 +30,16 @@ public class Cadena {
         this.frase = frase;
     }
 
-    public Double getLongitud() {
+    public int getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(Double longitud) {
+    public void setLongitud(int longitud) {
         this.longitud = longitud;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Cadena{" + "frase=" + frase + ", longitud=" + longitud + '}';
+    }
 }
