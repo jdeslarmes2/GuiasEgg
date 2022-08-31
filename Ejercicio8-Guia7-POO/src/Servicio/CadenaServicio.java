@@ -99,33 +99,51 @@ public class CadenaServicio {
         public void unirFrase (Cadena c1){
            
            
-           System.out.println("Ingrece la nueva frase a comparar la longitud : ");
+           System.out.println("Ingrece la nueva frase a unir a la anterior : ");
            String fraseNueva = leer.next();
            System.out.println(c1.getFrase()+fraseNueva);
      }
      
-          public void reemplazar (Cadena c1){
+        public void reemplazar (Cadena c1){
            
            
            System.out.println("Ingrece caracter a reemplazar por la letra a de la frase: ");
            
            String caracterReemplazo = leer.next();
-           char Frase[] = c1.getFrase().toCharArray();
+           String Frase = c1.getFrase();
            String NuevaFrase = "";
            
-            for (int i = 0; i < Frase.length; i++){
-           
-                if(Frase[i].equal = "a"){
-                    NuevaFrase+= caracterReemplazo;
-                }else {
-                     NuevaFrase+=Frase[i];
-                }     
+            
+           for (int i = 1; i < Frase.length()+1; i++){
+                if (Frase.substring(i-1,i).equals("a")){
+                    NuevaFrase += caracterReemplazo;
+                } else {
+                    NuevaFrase += Frase.substring(i-1,i);
+                }          
            }
-                
            System.out.println("La nueva frase es: " + NuevaFrase);
+ 
+        }
+     
+        public void contiene (Cadena c1){
            
            
-     }
-     
-     
+           System.out.println("Ingrece caracter a verificar si contiene la frase: ");
+           
+           String caracterVerif = leer.next();
+           String Frase = c1.getFrase();
+           int verificacion = 0;
+           
+            
+           for (int i = 1; i < Frase.length()+1; i++){
+                if (Frase.substring(i-1,i).equals(caracterVerif)){
+                    verificacion = verificacion + 1;
+                }      
+           }
+           System.out.println("La cantidad de veces que se repite el caracter en la frase es : " + verificacion);
+ 
+        }
+        
+        
+        
 }

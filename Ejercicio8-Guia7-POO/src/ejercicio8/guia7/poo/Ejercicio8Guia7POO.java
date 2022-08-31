@@ -32,6 +32,10 @@ public class Ejercicio8Guia7POO {
         cs.compararFrase(c1);
         
         cs.unirFrase(c1);
+        
+        cs.reemplazar(c1);
+        
+        cs.contiene(c1);
                 
         
     }
