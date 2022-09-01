@@ -28,7 +28,8 @@ public class Ejercicio12Guia7POO {
              
              //Intanciación del objeto donde alojar el retorno de datos
              
-             Persona p1 = ps1.crearPersona();
+             Persona p1 = new Persona(); 
+             p1 = ps1.crearPersona();
              
                 int operacion = 0;
        
