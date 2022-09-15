@@ -22,8 +22,8 @@ public class MesesServicio {
         
         System.out.println("Ingrese el mes que elige para adivinar: ");
         m1.setMesElegido(leer.next());
-        int i =0;
-        for (i=0; i<2; i++){
+    //    int i =0;
+        for (int i=0; i<2; i++){
             if (m1.getMesElegido().equals(m1.getMesSecreto())){
             System.out.println("¡Ha acertado!"); 
             break;
