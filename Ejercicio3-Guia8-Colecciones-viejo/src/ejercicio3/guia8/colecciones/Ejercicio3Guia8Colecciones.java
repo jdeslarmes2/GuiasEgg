@@ -25,10 +25,6 @@ public class Ejercicio3Guia8Colecciones {
        sa.agregarAlumno();
       //sa.mostrarListaAlumnos();
        sa.mostrarLista2Alumnos();
-<<<<<<< HEAD
-=======
-       sa.notaFinal();
->>>>>>> e10837c (Primero de Guia 8 Colecciones)
 
         
     }

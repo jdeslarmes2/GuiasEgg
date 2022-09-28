@@ -58,10 +58,6 @@ public class ServicioAlumno {
     }
    public void mostrarListaAlumnos(){
        
-<<<<<<< HEAD
-=======
-       //Mostrar Lista con Interador
->>>>>>> e10837c (Primero de Guia 8 Colecciones)
        
        Iterator<Alumno> it = alumnos.iterator();
        System.out.println("Los alumnos actuales de la lista son: ");
@@ -73,10 +69,6 @@ public class ServicioAlumno {
  
        public void mostrarLista2Alumnos(){
        
-<<<<<<< HEAD
-=======
-           //Mostrar Lista con for each
->>>>>>> e10837c (Primero de Guia 8 Colecciones)
        
        System.out.println("Los alumnos actuales de la lista son: ");
            for (Alumno aux: alumnos) {
@@ -84,30 +76,6 @@ public class ServicioAlumno {
            }
         }
        
-<<<<<<< HEAD
-=======
-       public void notaFinal(){
-           ArrayList <Integer> s = new ArrayList();
-           int sum = 0;
-           System.out.println("Ingrese el alumno que desea calcular su nota final: ");
-           String alum = leer.next();
-           
-           for (int i = 0; i < alumnos.size(); i++) {
-               
-               if(alumnos.get(i).getNombre().equalsIgnoreCase(alum)){
-                   s = alumnos.get(i).getNotas();
-               }
-           }
-           //Sumatoria de las notas por alumno
-           for (int i = 0; i < s.size(); i++) {
-               sum = sum + s.get(i);
-               
-           }
-           double prom = (double)sum/3;
-           System.out.println("El promedio del alumno "+ alum + " es de " + prom);
-       }
-       
->>>>>>> e10837c (Primero de Guia 8 Colecciones)
 }   
     
 
