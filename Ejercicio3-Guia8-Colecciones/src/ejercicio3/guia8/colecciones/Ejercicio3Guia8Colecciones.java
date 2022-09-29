@@ -13,9 +13,7 @@ import servicios.ServicioAlumno;
  */
 public class Ejercicio3Guia8Colecciones {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         
     
