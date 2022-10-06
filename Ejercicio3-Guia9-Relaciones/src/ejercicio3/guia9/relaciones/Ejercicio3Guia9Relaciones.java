@@ -17,9 +17,9 @@ public class Ejercicio3Guia9Relaciones {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         servicioBaraja sb = new servicioBaraja();
-        
+
         sb.crearBaraja();
         sb.barajar();
         sb.siguienteCarta();
@@ -27,7 +27,7 @@ public class Ejercicio3Guia9Relaciones {
         sb.darCartas();
         sb.cartasMonton();
         sb.mostrarBaraja();
-        
+
     }
-    
+
 }

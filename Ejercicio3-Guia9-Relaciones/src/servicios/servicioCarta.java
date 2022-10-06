@@ -18,7 +18,7 @@ public class servicioCarta {
     
     public void mostrarCarta(Carta c1){
         
-        System.out.println("El número de su carta es: "+ c1.getNumero()+" del palo: " + c1.getPalo());
+        System.out.println("Su carta es: "+ c1.getNumero()+" de: " + c1.getPalo());
     }
     
 }

@@ -29,39 +29,65 @@ public class servicioBaraja {
     public void crearBaraja() {
 
         //Creo espadas y las cargo en el maso
+        System.out.println("-----------Su maso inicial de cartas es el siguiente--------------");
         int palos = 0;
         int contador = 0;
-        for (int a = 0; a < 3; a++) {
+        for (int a = 0; a < 4; a++) {
             palos++;
             if (palos == 1) {
                 c1.setPalo("Espadas");
             }
             if (palos == 2) {
+                contador = 0;
                 c1.setPalo("Oros");
             }
             if (palos == 3) {
+                contador = 0;
                 c1.setPalo("Bastos");
             }
             if (palos == 4) {
+                contador = 0;
                 c1.setPalo("Copas");
             }
-            for (int i = 0; i < 11; i++) {
+            for (int i = 0; i < 12; i++) {
                 contador++;
                 c1.setNumero(contador);
                 sc.mostrarCarta(c1);
-                cartas.add(contador, c1);
+                cartas.add(new Carta(c1.getNumero(),c1.getPalo()));
             }
         }
 
-        //Elimino los 8 y 9 (si hicieramos con ArrayList)
-        Iterator<Carta> it = cartas.iterator();
-        while (it.hasNext()) {
-            if (it.next().getNumero() == 8 || it.next().getNumero() == 9) {
-                it.remove();
-            }
-        }
+       //Elimino los 8 y 9 con Iterator
+      Iterator<Carta> it = cartas.iterator();
+       while (it.hasNext()) {
+           if (it.next().getNumero() == 8) {      
+               it.remove();
+           }
+       }
+       Iterator<Carta> it2 = cartas.iterator(); 
+       while (it2.hasNext()) {
+           if (it2.next().getNumero() == 9) {      
+               it2.remove();
+           }
+       }
+       //Borrar los 8 y 9 con for normal 
+//            for (int i = 0; i < cartas.size(); i++) {
+//            int numero = cartas.get(i).getNumero();
+//                if(numero ==8){
+//                    cartas.remove(i);
+//                }
+//            }
+//            for (int i = 0; i < cartas.size(); i++) {
+//            int numero = cartas.get(i).getNumero();
+//                if(numero ==9){
+//                    cartas.remove(i);
+//                }
+//            }
+
         //Mostrar ArrayList barajas de maso final (si hicieramos con ArrayList la lista)
-
+        System.out.println("");
+        System.out.println("-------Ahora saco los 8 y 9 ----------");
+        System.out.println("");
         for (Carta aux : cartas) {
             System.out.println(aux.toString());
         }
@@ -79,7 +105,11 @@ public class servicioBaraja {
     }
 
     public void barajar() {
-
+        
+        System.out.println("");
+        System.out.println("---------Barajamos las cartas y quedan de la siguiente manera-----------------");
+        System.out.println("");
+        
         ArrayList<Carta> barajadas = b1.getCartas();
         //Desordeno aleatoriamente la 
         Collections.shuffle(barajadas);
@@ -102,7 +132,9 @@ public class servicioBaraja {
         if (ultimaCarta == 0) {
             System.out.println("Usted no tiene más cartas en el maso");
         }
-
+        System.out.println("");
+        System.out.println("------Le entrego la siguiente carta del maso---------");
+        System.out.println("");
         if (ultimaCarta > 0) {
 
             //Muestro carta del maso, no importa el tamaño del mismo
@@ -115,8 +147,8 @@ public class servicioBaraja {
             //Borro carta seleccionada del maso
             Iterator<Carta> it = cartas.iterator();
             while (it.hasNext()) {
-                if (it.next().equals(cartaSeleccionada)) { // Si se cumple la condicion de encontrar se elimina la carta
-                    cartasEntregadas.add(cartaSeleccionada);
+                if (it.next().equals(cartaSeleccionada)) { // Si se cumple la condicion de encontrar primero agrego a ArrayList de cartas entregadas y luego elimina la carta
+                    cartasEntregadas.add(new Carta (cartaSeleccionada.getNumero(), cartaSeleccionada.getPalo()));
                     it.remove();
                 }
             }
@@ -133,28 +165,29 @@ public class servicioBaraja {
             System.out.println("Usted no tiene más cartas en el maso");
         }
 
-        while (cartasDisponibles > 0) {
-
-            System.out.println("Las cartas disponibles para repartir son: " + b1.getCartas().size());
+        if (cartasDisponibles > 0) {
+            System.out.println("");
+            System.out.println("Las cartas disponibles del maso para repartir son: " + b1.getCartas().size());
+            System.out.println("");
         }
     }
 
     public void darCartas() {
         ArrayList<Carta> cartasRepartidas = new ArrayList(); 
-        System.out.println("Ingrese el número de cartas que desea repartir: ");
+        System.out.println("------------------Ingrese el número de cartas que desea repartir ------------ ");
         int cartasARepartir = leer.nextInt();
 
         if (cartasARepartir > b1.getCartas().size()) {
             System.out.println("Usted no tiene suficientes cartas en el mazo para repartir esa cantidad");
         } else {
 
-            //Muestro cartas del maso a repartir
+            //Muestro cartas del maso a repartir y agreglo en lista de cartas entregadas
             
             Carta cartaSeleccionada = new Carta();
             for (int i = 0; i < cartasARepartir; i++) {
                 cartaSeleccionada = b1.getCartas().get(i);
                 sc.mostrarCarta(cartaSeleccionada);
-                cartasEntregadas.add(cartaSeleccionada);
+                cartasEntregadas.add(new Carta (cartaSeleccionada.getNumero(), cartaSeleccionada.getPalo()));
 
                 //Borro del maso de cartas la carta seleccionada en el mismo for
                 Iterator<Carta> it = cartas.iterator();
@@ -175,7 +208,9 @@ public class servicioBaraja {
             System.out.println("Usted no ha entregado ninguna carta");
         } else {
             Carta cartaSeleccionada = new Carta();
-            System.out.println("Las cartas del montón de entregadas son: ");
+            System.out.println("");
+            System.out.println("------------Las cartas repartidas son las siguientes ------------------ ");
+            System.out.println("");
             for (int i = 0; i < cartasEntregadas.size(); i++) {
                 cartaSeleccionada = b1.getCartasEntregadas().get(i);
                 sc.mostrarCarta(cartaSeleccionada);
@@ -187,7 +222,9 @@ public class servicioBaraja {
     public void mostrarBaraja(){
         
         Carta cartaSeleccionada = new Carta();
-            System.out.println("Las cartas del maso son : ");
+            System.out.println("");
+            System.out.println("----------------Las cartas del maso son las siguientes-------------- ");
+            System.out.println("");
             for (int i = 0; i < b1.getCartas().size(); i++) {
                 cartaSeleccionada = b1.getCartas().get(i);
                 sc.mostrarCarta(cartaSeleccionada);
