@@ -43,7 +43,7 @@ public class Ejercicio1Guia9Relaciones {
         persona2.setNombre("Federico");
         persona2.setApellido("Lopez");
         persona2.setDocumento(30786432);
-        persona2.setPerro(perro2);
+        persona2.setPerro(perro2);      //Configuramos el perro 2 para la persona 2
         
         System.out.println("Los datos de la persona 1 son: " + persona1.toString() +",\nEl perro de la persona1 es: " + perro1.toString()+ ",\nLos datos de la persona 2 son : "+ persona2.toString() +",\nEl perro de la persona 2 es: "+ perro2.toString());
         

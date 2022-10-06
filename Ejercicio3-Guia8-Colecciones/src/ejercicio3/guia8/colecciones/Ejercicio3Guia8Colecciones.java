@@ -13,7 +13,9 @@ import servicios.ServicioAlumno;
  */
 public class Ejercicio3Guia8Colecciones {
 
-    
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         
     
@@ -23,6 +25,10 @@ public class Ejercicio3Guia8Colecciones {
        sa.agregarAlumno();
       //sa.mostrarListaAlumnos();
        sa.mostrarLista2Alumnos();
+<<<<<<< HEAD
+=======
+       sa.notaFinal();
+>>>>>>> e10837c (Primero de Guia 8 Colecciones)
 
         
     }
