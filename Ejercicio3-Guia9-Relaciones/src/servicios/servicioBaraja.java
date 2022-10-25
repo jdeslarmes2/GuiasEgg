@@ -181,7 +181,7 @@ public class servicioBaraja {
             System.out.println("Usted no tiene suficientes cartas en el mazo para repartir esa cantidad");
         } else {
 
-            //Muestro cartas del maso a repartir y agreglo en lista de cartas entregadas
+            //Muestro cartas del maso a repartir y agrego en lista de cartas entregadas
             
             Carta cartaSeleccionada = new Carta();
             for (int i = 0; i < cartasARepartir; i++) {
