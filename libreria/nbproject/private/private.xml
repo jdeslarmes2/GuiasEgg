@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/libreria/servicios/LibroServicio.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/libreria/Libreria.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/persistencia/AutorJpaController.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/persistencia/LibroJpaController.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/persistencia/EditorialJpaController.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/libreria/servicios/EditorialServicio.java</file>
+            <file>file:/C:/Users/jdeslarmes/Documents/NetBeansProjects/libreria/src/libreria/entidades/Editorial.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,30 @@
+body{
+    background-color: burlywood;
+ }
+ h1{
+    color: blue;
+    text-align: center;
+    font-family: Verdana, Arial;
+
+ }
+ h2{
+    color:crimson;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    
+ }
+ p{
+    color:chocolate;
+    text-align:left;
+    font-family: 'Times New Roman', Times, serif;   
+ }
+ .link{
+    color: red;
+ }
+ .link:hover{
+    color: white;
+    background-color: red;
+}
+.link:visited{   
+    color:dimgray
+}

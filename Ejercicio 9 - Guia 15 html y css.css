@@ -1,0 +1,31 @@
+h1{
+    color:darkcyan;
+    text-align: left;
+
+ }
+ h2{
+    color:blue;
+    text-align: left;
+
+ }
+ table {
+	border: 1px solid black;
+    border-spacing: 0px;
+    
+    
+}
+th{
+    border: 1px solid black;
+    border-spacing: 0px;
+}
+td{
+    border: 1px solid black;
+    border-spacing: 0px;
+}
+
+#especial{
+    color:blueviolet;
+}
+#adicional{
+    color:olive;
+ }
