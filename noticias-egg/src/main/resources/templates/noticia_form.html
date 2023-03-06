@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Registro de Noticias</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/estilos/formulario.css">
+
+    <div class="containerImg">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <img class="logo" src="/img/noticias.png" alt="Logo noticias"> <!-- alt es el texto alternativo si no carga la imagen-->
+        </a>
+    </div>
+
+
+</head>
+<body>
+    <section>
+
+        <div class="container-fluid m-5 contenedor">
+
+            <form class="formulario" th:action="@{/noticia/registro}" method="POST" enctype="multipart/form-data">  <!-- etiqueta action indica hacia donde tiene que enviar la información y el metodo de envio es un POST y la class permite luego modificar esteticamente el formulario y etiqueta enctype es para anticiparle al formulario que va a enviar gran cantidad de información o bytes, ej. imagenes, en su dato --> 
+
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError" > <!--!tag de thymelife es th y usa $ {, si el error es distinto de nulo muestro mensaje -->
+                    <div class="card-body">
+                        <h5 class="card-title">Error ðŸ‘Ž</h5>
+                        <p class="card-text" th:text="${error}"></p>    <!--muestro el valor del error de la llave que traifo de texto -->
+                    </div>
+                </div>
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+                    <div class="card-body">
+                        <h5 class="card-title">Exito!</h5>
+                        <p class="card-text" th:text="${exito}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="mb-2"><h2>Cargar Noticia</h2></label> 
+
+                </div>
+                <div class="form-group">
+
+                    <label for="exampleFormControlTextarea1">Titulo de noticia</label>
+                    <br>
+                    <input type="text" class="form-control" name="titulo" placeholder="Ingrese el titulo">
+
+                </div>
+
+                <div class="form-group">
+
+                    <br>
+                    <label for="exampleFormControlTextarea1">Cuerpo de noticia</label>
+                    <br>
+                    <textarea class="form-control" name="cuerpo" placeholder="Ingrese el texto" rows="4"></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <br>
+                    <label for="exampleFormControlTextarea1">Cargar imagen de la noticia: </label>
+                    <br>
+                    <input type="file" class="form-control-file" name="archivo">
+                    <br>
+                </div>
+                    <div class="form-group" >
+                           
+                    <select  id="periodistas"  th:href="@{esitlosNoticia.css}">                                
+
+                            <option>Seleccionar Periodista</option>
+
+                            <option name="idPeriodista" th:each="periodista : ${periodistas}"           
+                                    th:value="${periodista.id}"                                     
+                                    th:text="${periodista.nombreUsuario}" 
+                                    />
+                    </select>
+                </div>
+                  <!-- el TH:VALUE es el que le da el valor a la etiqueta con nombre idPeriodista-->
+                                     <!--TENEMOS QUE PONER LOS VALORES QUE VAN A VIAJAR, ESO SE DEFINE CON EL NAME=, ESTE NOMBRE DEBE COINCIDIR CON EL NOMBRE QUE LLEGA AL CONTROLADOR PARA EL POSTMAPPING EN EL @REQUESTPARAM-->
+                                    <!--!!!!!!!!!!!!!--TH EACH ITERA LA LISTA COMO EL FOR EACH, CON EL TH VALUE INDICO EL VALOR QUE VA A VIAJAR AL POSTMAPPING Y YO QUIERO RECIBIR EL STRING ID, POR ÚLTIMO CON EL TH:TEXT INDICO EL TEXTO QUE QUIERO QUE SE VEA EN PANTALLA, EN ESTE CASO ES EL NOMBRE DEL PREIODISTA!!!!!!!!!!!!!!!!---->
+
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+    </section>
+
+    <section class=" text-center container">
+        <div class="row mt-3">
+            <div class="divVolver">
+                <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="text-muted py-5">
+    <div class="containerFooter">
+        <p class="mb-1">Album example is &copy; Bootstrap,<br>but please download and customize it for yourself!</p>
+        <p class="mb-0">New to Bootstrap? <a href="/"><br>Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+        <p class="float-end mb-1">
+            <a href="#" style="text-decoration:none"><span>â¬†ï¸</span> Back to top</a>
+        </p>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

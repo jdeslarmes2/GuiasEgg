@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+        <head>
+        <meta charset="ISO-8859-1">
+        <title>Modificar Noticia</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+
+    <body>
+
+        <section>
+
+        <div class="container-fluid m-5 contenedor">
+                                                                                                                                      <!-- etiqueta action indica hacia donde tiene que enviar la informaci�n y el metodo de envio es un POST y la class permite luego modificar esteticamente el formulario y etiqueta enctype es para anticiparle al formulario que va a enviar gran cantidad de informaci�n o bytes, ej. imagenes, en su dato --> 
+            <form class="formulario" th:action="@{/noticia/modificar/__${noticia.id}__}" method="POST" enctype="multipart/form-data" >  <!-- con la variable __$...__ preprocesamos esa variable antes de analizar la url , para imagenes: agregar al input enctype="multipart/form-data"--> 
+                
+                <input hidden th:value="${id}" name="id">                                                                            <!-- dado que necesito que no modificar el id, tiene que viajar oculto con el hidden y le pongo como nombre id-->
+                
+                
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError" > <!--!tag de thymelife es th y usa $ {, si el error es distinto de nulo muestro mensaje -->
+                    <div class="card-body">
+                        <h5 class="card-title">Error 👎</h5>
+                        <p class="card-text" th:text="${error}"></p>    <!--muestro el valor del error de la llave que traifo de texto -->
+                    </div>
+                </div>
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+                    <div class="card-body">
+                        <h5 class="card-title">Exito!</h5>
+                        <p class="card-text" th:text="${exito}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="mb-2"><h2>Modificar Noticia</h2></label> 
+                
+                </div>
+                <div class="form-group">
+                    
+                     <label for="exampleFormControlTextarea1">Titulo de noticia</label>
+                     <br>
+                     <input th:value="${noticia.titulo}" type="text" class="form-control" name="titulo">     <!--con value viaja hacia noticia.titulo con el nombre titulo-->
+                    
+                </div>
+
+                <div class="form-group">
+                    
+                    <br>
+                    <label for="exampleFormControlTextarea1">Cuerpo de noticia</label>
+                    <br>
+                <!-- ejemplo con input se usa th:value    <input th:value="${noticia.cuerpo}" type="text" class="form-control" name="cuerpo">  -->
+                    <textarea th:text="${noticia.cuerpo}" class="form-control" name="cuerpo" rows="4"></textarea>
+                    
+                </div>
+                
+                <div class="form-group">
+                     
+                    <br>
+                    <label for="exampleFormControlTextarea1">Cargar imagen de la noticia: </label>
+                    <br>
+                      <img th:src="@{/imagen/imgNoticia/__${noticia.id}__}" >
+                      <br>
+                    <input type="file" class="form-control-file" name="archivo">
+                    
+                </div>
+               
+                    <br>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+            
+            </form>
+        </section>
+
+            <section class=" text-center container">
+                <div class="row mt-3">
+                    <div class="divVolver">
+                        <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="text-muted py-5">
+            <div class="containerFooter">
+                <p class="mb-1">Album example is &copy; Bootstrap,<br>but please download and customize it for yourself!</p>
+                <p class="mb-0">New to Bootstrap? <a href="/"><br>Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+                <p class="float-end mb-1">
+                    <a href="#" style="text-decoration:none"><span>⬆️</span> Back to top</a>
+                </p>
+            </div>
+        </footer>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

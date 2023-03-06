@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace= "/fragments/head :: head" </head>   <!--Con esta etiquerta de th:replace reemplazas el archivo head que esta em fragmentos, así no se repite siempre el mismo codigo-->
+    <body>       
+        
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+           
+            
+     <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Noticias TVP</h1>
+          <p class="lead text-muted">Portal de noticias de Argentina, con todo lo importante en relacion a Cultura, Deportes, Economia y mucho mas.</p>
+        </diV>
+          <div class="container m-5" align="left">
+             <div >
+                
+                <div > 
+                    <h3  name = "titulo" th:text="${noticia.titulo}"></h3>        
+                   <img th:src="@{/imagen/imgNoticia/__${noticia.id}__}" align="center">
+                    <h5  id="noticia" name = "cuerpo" th:text="${noticia.cuerpo}"></h5>
+                    <h5>Periodista</h5>
+                    <h5  name = "nombreUsuario" th:text="${noticia.periodista.nombreUsuario}"></h5>  
+                   <div>                                    
+                       <a class="card-link" th:href= "@{/}" >Volver</a>     <!--CON ESTE HTML SOLO VEO EL DETALLE DE LA NOTICIA-->                           
+                    </div>
+               </div>         
+             </div>       
+            </div>
+      </div>
+     </section> 
+            
+            
+    
+            
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+
+</html>
