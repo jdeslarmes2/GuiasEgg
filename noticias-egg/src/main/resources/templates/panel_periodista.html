@@ -8,26 +8,28 @@
         <nav th:replace="/fragments/navbar :: nav"></nav>
 
 
-
-
-        <header class="header">
+        <header class="header" align="center">
             <section class="contenedorMain">
                 <div class="tituloBiblioteca">
-                    <a class="navbar-brand" href="#">NOTICIAS TVP</a>
+        
                 </div>
                  <div class="container contenedorLibros">
                     <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombreUsuario} "></p>
                 </div>
                 <div class="container">
-                    <a th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
-                        <img class="logo"  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
+                    <a th:if="${session.usuariosession.imagen != null}" class="pruebaPanel">
+                        <img  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
                     </a>
                 </div>
+                <br>
                 <div th:if="${session.usuariosession.misNoticias != null}" class="container contenedorLibros">
-                    <p class="tituloLibros" th:href="@{/periodista/misNoticias/__${session.usuariosession.id}__}">Ver mis noticias</p>
-                    <p class="tituloLibros">Encontra todas las noticias </p>
-                    <a class="btn btn-xl mt-2 boton"  th:href="@{/}">Ver todas las noticias</a>
+                    <a class="btn btn-xl mt-2 boton"  th:href="@{/periodista/misNoticias}">Ver lista de mis noticias</a>
+                    <br>
                 </div>
+                <div th:if="${session.usuariosession != null}" class="container contenedorLibros">
+                    <a class="btn btn-xl mt-2 boton" th:href="@{/}">Ver todas las noticias</a>
+                </div>
+                
                 <div class="bg-circle-1 bg-circle"></div>
                 <div class="bg-circle-2 bg-circle"></div>
                 <div class="bg-circle-3 bg-circle"></div>

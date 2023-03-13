@@ -7,6 +7,7 @@ import com.example.noticias.egg.entidades.Usuario;
 import com.example.noticias.egg.enumeraciones.Rol;
 import com.example.noticias.egg.excepciones.MiException;
 import com.example.noticias.egg.repositorios.NoticiaRepositorio;
+import com.example.noticias.egg.repositorios.PeriodistaRepositorio;
 import com.example.noticias.egg.servicios.NoticiaServicio;
 import com.example.noticias.egg.servicios.UsuarioServicio;
 import java.util.ArrayList;
@@ -187,25 +188,24 @@ public class PortalControlador {
         }
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_REPORTER')")   //el preautorize es para que solo permita ir a inicio si te logueaste previamente con un role
-    @GetMapping("/perfilPeriodista/")                                       //acá no hace falta el id por que tenemos acceso a el mediante la session
-    public String perfilPeriodista(ModelMap modelo, HttpSession session) {
-        Periodista periodista = (Periodista) session.getAttribute("usuariosession");
+
+    @GetMapping("/perfilPeriodista/{id}")                                       //acá no hace falta el id por que tenemos acceso a el mediante la session
+    public String perfilPeriodista(@PathVariable String id, ModelMap modelo){
+        Periodista periodista = usuarioServicio.getOnePeriodista(id);
         modelo.put("periodista", periodista);
         return "periodista_modificar.html";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN','ROLE_REPORTER')")   //el preautorize es para que solo permita ir a inicio si te logueaste previamente con un role
+  //el preautorize es para que solo permita ir a inicio si te logueaste previamente con un role
     @PostMapping("/perfilPeriodista/{id}")
-    public String actualizarPeriodista(MultipartFile archivo, @PathVariable String idUsuario, @RequestParam String nombreUsuario, @RequestParam Date fechaAlta,
+    public String actualizarPeriodista(MultipartFile archivo, @PathVariable String id, @RequestParam String nombreUsuario, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaAlta,
             @RequestParam String password, @RequestParam String password2, @RequestParam Boolean activo, Integer sueldoMensual, ModelMap modelo) {
             
-        List<Noticia> misNoticias = noticiaRepositorio.buscarPorId(idUsuario);
-        modelo.addAttribute("misNoticias", misNoticias);
+
 
         try {
 
-            usuarioServicio.actualizarPeriodista(archivo, idUsuario, nombreUsuario, password, password2, fechaAlta, activo, sueldoMensual, misNoticias);
+            usuarioServicio.actualizarPeriodista(archivo, id, nombreUsuario, password, password2, fechaAlta, activo, sueldoMensual);
 
             modelo.put("exito", "Periodista actualizado correctamente!");
 
@@ -218,7 +218,7 @@ public class PortalControlador {
             modelo.put("archivo", archivo);
             modelo.put("activo", activo);
             modelo.put("sueldoMensual", sueldoMensual);
-            modelo.put("misNoticias", misNoticias);
+
 
             return "periodista_modificar.html";
         }

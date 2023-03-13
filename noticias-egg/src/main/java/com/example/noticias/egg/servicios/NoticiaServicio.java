@@ -110,11 +110,12 @@ public class NoticiaServicio {
         
               
        public void  eliminarNoticia(String id, String titulo, String cuerpo, MultipartFile archivo) throws MiException{
-           
-        //   validar(titulo, cuerpo);
+              //   validar(titulo, cuerpo);
            
            Optional<Noticia> respuestaNoticia = noticiaRepositorio.findById(id);
               
+           noticiaRepositorio.deleteById(id); 
+           
            if(respuestaNoticia.isPresent()){
             Noticia noticia = respuestaNoticia.get();
               
@@ -126,9 +127,10 @@ public class NoticiaServicio {
                System.out.println("El número de ID de la imagen es :"+ idImagen);
                imagenServicio.eliminarImagen(archivo, idImagen);
                 }
-                noticiaRepositorio.deleteById(id); 
-           }
+
+               
            
+           }
            
     }       
        

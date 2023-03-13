@@ -19,7 +19,7 @@
                 
                 <div > 
                     <h3  name = "titulo" th:text="${noticia.titulo}"></h3>        
-                   <img th:src="@{/imagen/imgNoticia/__${noticia.id}__}" align="center">
+                   <img class="prueba2" th:src="@{/imagen/imgNoticia/__${noticia.id}__}" >
                     <h5  id="noticia" name = "cuerpo" th:text="${noticia.cuerpo}"></h5>
                     <h5>Periodista</h5>
                     <h5  name = "nombreUsuario" th:text="${noticia.periodista.nombreUsuario}"></h5>  

@@ -7,20 +7,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 public class Periodista extends Usuario{
     
 
-    @OneToMany
+    @OneToMany (fetch = FetchType.EAGER)
     private List<Noticia> misNoticias;
     private Integer sueldoMensual;
-
+    
     public Periodista() {
     }
 

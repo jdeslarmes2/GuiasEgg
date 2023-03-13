@@ -2,13 +2,16 @@ package com.example.noticias.egg.controladores;
 
 import com.example.noticias.egg.entidades.Noticia;
 import com.example.noticias.egg.entidades.Periodista;
+import com.example.noticias.egg.entidades.Usuario;
 import com.example.noticias.egg.enumeraciones.Rol;
 import com.example.noticias.egg.excepciones.MiException;
 import com.example.noticias.egg.repositorios.NoticiaRepositorio;
 import com.example.noticias.egg.servicios.UsuarioServicio;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +25,7 @@ public class ReporterContrtolador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
-    
+
     @Autowired
     private NoticiaRepositorio noticiaRepositorio;
 
@@ -36,7 +39,7 @@ public class ReporterContrtolador {
         List<Periodista> periodistas = usuarioServicio.mostrarPeriodistas();
         modelo.addAttribute("periodistas", periodistas);
 
-        return "periodistas_list.html";
+        return "periodista_list.html";
     }
 
     @GetMapping("/eliminar/{id}")
@@ -52,15 +55,17 @@ public class ReporterContrtolador {
             return "periodista_list.html";
         }
     }
-    @GetMapping("/misNoticias/{id}")
-    public String verNoticiasPeriodista(@PathVariable String id, String nombreUsuario, String password, Date fechaAlta, Rol rol, MultipartFile archivo, Integer sueldoMensual, ModelMap modelo) {
-
-        List<Noticia> misNoticias = noticiaRepositorio.buscarPorId(id);
-        modelo.addAttribute("misNoticias", misNoticias);
+    @PreAuthorize("hasRole('ROLE_REPORTER')") 
+    @GetMapping("/misNoticias")
+    public String verNoticiasPeriodista(ModelMap modelo, HttpSession session) {
 
 
+            Periodista periodista = (Periodista) session.getAttribute("usuariosession");
+            List<Noticia> misNoticias = periodista.getMisNoticias();
+            modelo.addAttribute("misNoticias", misNoticias);
             return "periodista_list_id.html";
 
     }
-    
+  
+
 }

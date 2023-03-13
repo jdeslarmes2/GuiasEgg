@@ -1,8 +1,10 @@
 
 package com.example.noticias.egg.entidades;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -11,9 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Noticia {
-    
-    
-    
+
     
     @Id
     @GeneratedValue(generator = "uuid") //Genera id en forma automatica al momento que el repositorio persista la entidad
@@ -36,7 +36,7 @@ public class Noticia {
     }
     
     
-    @OneToOne
+    @OneToOne  //El cascade es para que borre la imagen cuando borro la noticia, intente también con , mappedBy = "noticia", no funciono. (fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "noticia")(cascade = CascadeType.ALL)
     private Imagen imagen;
 
     public Imagen getImagen() {

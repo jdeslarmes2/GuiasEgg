@@ -64,34 +64,35 @@
                     <input type="file" class="form-control-file" name="archivo">
                     <br>
                 </div>
-                    <div class="form-group" >
-                           
-                    <select  id="periodistas"  th:href="@{esitlosNoticia.css}">                                
+                <div class="form-group" >
 
-                            <option>Seleccionar Periodista</option>
+                    <select  name="id"  id="periodistas"  th:href="@{esitlosNoticia.css}">                                
 
-                            <option name="idPeriodista" th:each="periodista : ${periodistas}"           
-                                    th:value="${periodista.id}"                                     
-                                    th:text="${periodista.nombreUsuario}" 
-                                    />
+                        <option>Seleccionar Periodista</option>
+
+                        <option  th:each="periodista : ${periodistas}"           
+                                 th:value="${periodista.id}"                                     
+                                 th:text="${periodista.nombreUsuario}" 
+                                 />
                     </select>
                 </div>
-                  <!-- el TH:VALUE es el que le da el valor a la etiqueta con nombre idPeriodista-->
-                                     <!--TENEMOS QUE PONER LOS VALORES QUE VAN A VIAJAR, ESO SE DEFINE CON EL NAME=, ESTE NOMBRE DEBE COINCIDIR CON EL NOMBRE QUE LLEGA AL CONTROLADOR PARA EL POSTMAPPING EN EL @REQUESTPARAM-->
-                                    <!--!!!!!!!!!!!!!--TH EACH ITERA LA LISTA COMO EL FOR EACH, CON EL TH VALUE INDICO EL VALOR QUE VA A VIAJAR AL POSTMAPPING Y YO QUIERO RECIBIR EL STRING ID, POR ÚLTIMO CON EL TH:TEXT INDICO EL TEXTO QUE QUIERO QUE SE VEA EN PANTALLA, EN ESTE CASO ES EL NOMBRE DEL PREIODISTA!!!!!!!!!!!!!!!!---->
+                <!-- el TH:VALUE es el que le da el valor a la etiqueta con nombre idPeriodista-->
+                <!--TENEMOS QUE PONER LOS VALORES QUE VAN A VIAJAR, ESO SE DEFINE CON EL NAME=, ESTE NOMBRE DEBE COINCIDIR CON EL NOMBRE QUE LLEGA AL CONTROLADOR PARA EL POSTMAPPING EN EL @REQUESTPARAM-->
+                <!--!!!!!!!!!!!!!--TH EACH ITERA LA LISTA COMO EL FOR EACH, CON EL TH VALUE INDICO EL VALOR QUE VA A VIAJAR AL POSTMAPPING Y YO QUIERO RECIBIR EL STRING ID, POR ÚLTIMO CON EL TH:TEXT INDICO EL TEXTO QUE QUIERO QUE SE VEA EN PANTALLA, EN ESTE CASO ES EL NOMBRE DEL PREIODISTA!!!!!!!!!!!!!!!!---->
 
                 <br>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" align="center" class="btn btn-primary">Guardar</button>
+                <section class=" text-center container">
+                    <div class="row mt-3">
+                        <div class="divVolver">
+                            <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                        </div>
+                    </div>
+                </section>
             </form>
     </section>
 
-    <section class=" text-center container">
-        <div class="row mt-3">
-            <div class="divVolver">
-                <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
-            </div>
-        </div>
-    </section>
+
 </div>
 
 <footer class="text-muted py-5">

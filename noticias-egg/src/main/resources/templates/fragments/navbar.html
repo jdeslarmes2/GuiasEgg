@@ -10,21 +10,21 @@
     <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto elementos">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasAnyRole('ADMIN', 'REPORTER')" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Noticias
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                    <li><a class="dropdown-item"  sec.authorize="hasRole('ADMIN')" th:href="@{/noticia/registrar}">Crear Noticia</a></li>
+                    <li><a class="dropdown-item"  sec:authorize="hasAnyRole('ADMIN', 'REPORTER')" th:href="@{/noticia/registrar}">Crear Noticia</a></li>
                     <li><hr class="dropdown-divider"></li>
 
-                    <li><a class="dropdown-item" th:href="@{/noticia/lista}">Listar Noticias</a></li>
+                    <li><a class="dropdown-item" sec:authorize="hasAnyRole('ADMIN', 'REPORTER')"th:href="@{/noticia/lista}">Listar Noticias</a></li>
                 </ul>
             </li>
 
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" th:if="${session.usuariosession != null}" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Periodistas
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,32 +32,19 @@
                     <li><a class="dropdown-item"  sec.authorize="hasRole('ADMIN')"  th:href="@{/registrarPeriodista}">Crear Periodista</a></li>
                     <li><hr class="dropdown-divider"></li>
 
-                    <li><a class="dropdown-item"  th:href="@{/periodista/periodistas}">Listar Periodistas</a></li>
+                    <li><a class="dropdown-item"  sec:authorize="hasRole('ADMIN')" th:href="@{/periodista/periodistas}">Listar Periodistas</a></li>
                 </ul>
             </li>
 
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Usuarios
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/registrar}">Crear Usuario</a></li>
-                    <li><hr class="dropdown-divider"></li>
 
-                    <li><a class="dropdown-item" th:href="@{/lista/usuarios}">Listar Usuarios</a></li>
-                </ul>
-            </li>   
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Perfil
+            <li class="nav-item">
+                <a class="nav-link " th:if="${session.usuariosession != null}" href="/logout" id="navbarDropdown" role="button" aria-expanded="false">
+                    Cerrar Sesión
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/logout" >Cerrar Sesión</a></li>
-                </ul>
+
             </li>
-
             <li class="nav-item">
                 <a class="nav-link " th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown" role="button" aria-expanded="false">
                     Registrate

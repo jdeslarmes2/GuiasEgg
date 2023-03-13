@@ -44,17 +44,18 @@ public class NoticiaControlador {
     }
 
     @PostMapping("/registro")
-    public String registro(@RequestParam String titulo, @RequestParam String cuerpo, @RequestParam MultipartFile archivo, @RequestParam (required=false,name="idPeriodista")String idPeriodista, ModelMap modelo) throws MiException {
+    public String registro(@RequestParam String titulo, @RequestParam String cuerpo, @RequestParam MultipartFile archivo, @RequestParam (required=false) String id, ModelMap modelo) throws MiException {
 
+         System.out.println(id);
         try {
 
             List<Noticia> misNoticias = null;
 
-            noticiaServicio.crearNoticia(titulo, cuerpo, archivo, idPeriodista, misNoticias);
+            noticiaServicio.crearNoticia(titulo, cuerpo, archivo, id, misNoticias);
 
-            misNoticias = noticiaRepositorio.buscarPorId(idPeriodista);
+            misNoticias = noticiaRepositorio.buscarPorId(id);
             if (misNoticias != null) {
-                usuarioServicio.registrarMisNoticias(idPeriodista, misNoticias);
+                usuarioServicio.registrarMisNoticias(id, misNoticias);
             }
 
             modelo.put("exito", "La noticia fue cargada correctamente");
@@ -65,7 +66,11 @@ public class NoticiaControlador {
             modelo.put("error", ex.getMessage());
             return "noticia_form.html";
         }
-        return "index.html";
+        
+        
+        
+        
+        return "panel_periodista.html";
     }
 
     @GetMapping("/lista")

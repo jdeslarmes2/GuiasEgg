@@ -1,0 +1,62 @@
+.navBar{
+    background-color: #fff !important;
+}
+
+.elementosNav{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    color: #37474f;
+    font-weight: 700;
+}
+
+.elementos{
+    margin-right: 50px;
+}
+
+
+.boton{
+    color: white;
+    background-color:gray;
+
+}
+
+
+
+
+.boton:hover{
+    background-color: gray;
+}
+.boton:active{
+    box-shadow: none;
+}
+
+
+.prueba{
+
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+.prueba2{
+    text-align: center !important;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) !important;;
+}
+
+.pruebaPanel{
+ 
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5) !important;;
+}
+
+.noticia{
+ 
+  width: 100% !important;;
+  height: auto !important;
+  display: flex !important;  /* ETIQUETA QUE POSICIONA UNO AL LADO DEL OTRO */
+  justify-content: space-evenly;
+  flex-wrap: wrap !important;
+  align-content: flex-start !important;
+  gap: 3em !important; 
+  
+}
+
+

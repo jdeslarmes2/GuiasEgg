@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -18,6 +21,19 @@ public class Imagen {
     private String id;
     private String nombre;
     private String mime;
+    
+ //   @MapsId
+ //   @JoinColumn(name = "ID")
+ // @OneToOne(fetch = FetchType.LAZY)
+ //  private Usuario usuario;
+    
+    
+//    @MapsId
+//    @JoinColumn(name = "ID")
+//   @OneToOne(fetch = FetchType.LAZY)
+//   private Noticia noticia;
+    
+    
     
     @Lob @Basic(fetch=FetchType.LAZY)
     private byte[] contenido;

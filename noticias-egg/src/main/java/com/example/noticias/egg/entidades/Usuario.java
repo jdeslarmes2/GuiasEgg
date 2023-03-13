@@ -3,9 +3,11 @@ package com.example.noticias.egg.entidades;
 
 import com.example.noticias.egg.enumeraciones.Rol;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -37,7 +39,7 @@ public class Usuario {
     
     private Boolean activo;
     
-    @OneToOne
+    @OneToOne (cascade = CascadeType.REMOVE)                          //El cascade es para que borre la imagen cuando borro el usuario, intente con , mappedBy = "usuario" y no funciono la eliminación(fetch = FetchType.LAZY, cascade = CascadeType.ALL,  mappedBy = "usuario") 
     private Imagen imagen;
 
     public Imagen getImagen() {

@@ -6,22 +6,20 @@
     <body>
 
         <nav th:replace="/fragments/navbar :: nav"></nav>
-        <header class="header">
+        <header class="header" align="center">
             <section class="contenedorMain">
-                <div class="tituloBiblioteca">
-                    <a class="navbar-brand" >NOTICIAS TVP</a>
-                </div>
+
                 <div class="container contenedorLibros">
                     <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombreUsuario} "></p>
                 </div>
                 <div class="container">
-                    <a th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
-                        <img class="logo"  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
+                    <a th:if="${session.usuariosession.imagen != null}" class="pruebaPanel">
+                        <img  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
                     </a>
                 </div>
                 <div class="container contenedorLibros">
-                    <p class="tituloLibros">Encontra todas las noticias </p>
-                    <a class="btn btn-xl mt-2 boton"  th:href="@{/}">Ver Listado</a>
+                    <br>
+                    <a class="btn btn-xl mt-2 boton"  th:href="@{/}">Ver Noticias</a>
                 </div>
                 <div class="bg-circle-1 bg-circle"></div>
                 <div class="bg-circle-2 bg-circle"></div>
@@ -29,8 +27,7 @@
                 <div class="bg-circle-4 bg-circle"></div>
             </section>
         </header>                                                <!--ESTA VISTA ES LA DE INICIO DE CUALQUIER USUARIO LOGUEADO, NO PERIODISTA Y NO ADMINISTRADOR-->
-        <p class="tituloLibros">Encontra todas las noticias </p>
-        <a class="btn btn-xl mt-2 boton"  th:href="@{/}">Ver todas las noticias</a>
+
         <footer class="text-muted py-5">
             <div class="containerFooter">
                 <p class="mb-1">Album example is &copy; Bootstrap,<br>but please download and customize it for yourself!</p>

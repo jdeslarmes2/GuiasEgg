@@ -112,6 +112,11 @@ public class UsuarioServicio implements UserDetailsService {
     public Usuario getOne(String id) {                        //Pasamos el id y nos retorna el objeto noticia con ese id
         return usuarioRepositorio.getOne(id);
     }
+    
+    public Periodista getOnePeriodista(String id) {                       
+        return periodistaRepositorio.getOne(id);
+    }
+    
 
     @Transactional                                     //falta (readOnly=true)
     public List<Usuario> listarUsuarios() {
@@ -224,7 +229,7 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     @Transactional
-    public void actualizarPeriodista(MultipartFile archivo, String idUsuario, String nombreUsuario, String password, String password2, Date fechaAlta, Boolean activo, Integer sueldoMensual, List misNoticias) throws MiException {
+    public void actualizarPeriodista(MultipartFile archivo, String idUsuario, String nombreUsuario, String password, String password2, Date fechaAlta, Boolean activo, Integer sueldoMensual) throws MiException {
 
         validar(nombreUsuario, password, password2);
 
@@ -256,7 +261,6 @@ public class UsuarioServicio implements UserDetailsService {
 
             periodista.setSueldoMensual(sueldoMensual);
 
-            periodista.setMisNoticias(misNoticias);
 
             periodistaRepositorio.save(periodista);
         }

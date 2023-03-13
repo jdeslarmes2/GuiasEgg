@@ -1,0 +1,13 @@
+.noticia{
+  width: 10%;
+  height: auto;
+  display: flex;  /* ETIQUETA QUE POSICIONA UNO AL LADO DEL OTRO */
+  flex-wrap: wrap; 
+  align-content: center;
+}
+.prueba{
+   align-content: center;
+}
+
+
+
