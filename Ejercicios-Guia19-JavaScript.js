@@ -143,14 +143,14 @@
 
 // //Ejercicio 11
 
-// var frase =  prompt("Ingrese la frase a devolver la palabra más larga");
-// var fraseArray = frase.split(' ');
+ //var frase =  prompt("Ingrese la frase a devolver la palabra más larga");
+ //var fraseArray = frase.split(' ');
 
 // var longMaxPalabra = 0;
-// for(let palabra of fraseArray){
-//     if (longMaxPalabra < palabra.length){
-//         longMaxPalabra = palabra.length;
-//     }
+ //for(let palabra of fraseArray){
+ //    if (longMaxPalabra < palabra.length){
+ //        longMaxPalabra = palabra.length;
+ //    }
 // }
 // for(let palabra of fraseArray){
 //     if(palabra.length == longMaxPalabra){
@@ -311,34 +311,109 @@
 
 //------------------------------------------------------------------------------------------------------------------------
 
-//Ejercicio 18
+// //Ejercicio 18
 
 
-var vector = [true, 5, false, "hola", "adios", 2];
+// var vector = [true, 5, false, "hola", "adios", 2];
 
 
-var longString = 0;
+// var longString = 0;
 
-for (i=0; i<vector.length; i++){
+// for (i=0; i<vector.length; i++){
         
-       if(typeof vector[i] == "string")
-       var long =  vector[i].length;
+//        if(typeof vector[i] == "string")
+//        var long =  vector[i].length;
 
-       if(long > longString)
-       longString = long;
+//        if(long > longString)
+//        longString = long;
 
-}
+// }
 
-console.log(longString);
- 
+// console.log(longString);
+// //----------------------------------------------FORMA QUE  NO SALIO PRIMER PUNTO----------------------------
 
-for (i=0; i<vector.length; i++){
+// // for (i=0; i<vector.length; i++){
         
-    if(typeof vector[i] == "string" && vector[i].length == longString+1 )
-    var palabra = vector[i];
-    console.log(`La palabra con mayor cantidad de caracteres de los strings del vector es: ${palabra}`);
-     break;
- }
+// //     if(typeof vector[i] == "string")
+// //     var palabra = vector[i];
+// //     console.log(`La palabra con mayor cantidad de caracteres de los strings del vector es: ${palabra}`);
+// //      break; 
+// //  }          //Este for no funcionaba dado que me daba o la palabra vacía en la consola o decía undefined                                                                                                   
+// //-----------------------------------------------------------------------------------------------------------
+
+//  for(let palabra of vector){
+//      if(palabra.length == longString){
+//          console.log(`El string de mayor longitud en el vector es: ${palabra}.`);
+//          break;
+//      }
+//  }
+
+//  for (i=0; i<vector.length; i++){
+        
+//     if(typeof vector[i] == "boolean")
+//     console.log(`Hay un valor booleanto en el vector de tipo: ${vector[i]}.`);
+//      }
+
+//      var numeros = [];
+//      for (i=0; i<vector.length; i++){
+        
+//         if(typeof vector[i] == "number")
+//             numeros.push(vector[i]);
+//          }
+
+//      var suma = numeros[0] + numeros[1];
+//      console.log("La suma de los números del vector es: " + suma);
+//       var resta = numeros[0] - numeros[1];
+//       console.log("La resta de los números del vector es: " + resta);
+//       var multimplicacion = numeros[0] * numeros[1];
+//       console.log("La multiplicación de los números del vector es: " + multimplicacion);
+//       var división = numeros[0] / numeros[1];
+//       console.log("La división de los números del vector es: " + división);
+
+//Ejercicio 19
+
+// var vectorB = [];
+// var vectorA = [];
 
 
+
+// for (i=0; i<50; i++){
+        
+//     vectorA.push(Math.floor(Math.random()*201)-100);   //Vector entre -100 y 100 número reales redondeados
+//     }
+
+//     console.log(vectorA);
+
+
+// function compareNumeric(a, b) {
+// if (a > b) return 1;
+// if (a == b) return 0;
+// if (a < b) return -1;
+// }
+
+// let vectorAOrdenado = vectorA.sort(compareNumeric);
+
+// console.log(vectorAOrdenado);
+
+
+// vectorB = vectorAOrdenado.slice(0, 10);
+
+// console.log(vectorB);
+
+// for (i=0; i<10; i++){
+//          vectorB.push(0.5);
+//         }
+
+//      console.log("El vector B final es: " + vectorB);
+//      console.log("El vector A final es: " + vectorAOrdenado);
+
+
+//Ejercicio 20
+
+// let vector = [[3], [6], [9], [12], [15]];
+// vector.shift();                                 //Delete first parameter
+// vector.push([18]);                              //Add last parameter
+// let vectorMatrix = vector.map(Number);         // Convet matrix objects to number objects  
+
+// console.log(vectorMatrix);
 
