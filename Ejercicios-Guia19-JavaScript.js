@@ -417,3 +417,103 @@
 
 // console.log(vectorMatrix);
 
+// //Ejercicio 21
+
+// let cantidadPersonas = parseInt(prompt("Ingrese la cantidad de personas a crear: "));
+
+// for (i = 0; i < cantidadPersonas; i++) {
+
+
+
+//     var matrizPersonas = [];
+
+//     function crearPersona() {
+//         let Nombre = prompt("Ingrese el Nombre: ");
+//         let edad = parseInt(prompt("Ingrese su edad: "));
+//         let sexo = prompt("Ingrese el sexo, H para hombre, M para mujer, O para otros: ");
+//         let peso = parseFloat(prompt("Ingrese el peso: "));
+//         let altura = parseFloat(prompt("Ingrese la altura: "));
+
+//         return { Nombre, edad, sexo, peso, altura };
+//     }
+
+//     let nuevaPersona = crearPersona();
+
+//     function completarMatriz() {
+
+//         matrizPersonas.push(nuevaPersona);
+//     }
+
+// completarMatriz();
+// }
+   
+// var personaBuscada = prompt("Ingrese el nombre de la persona a ver propiedades: ");
+
+// var matrizPropiedades = [];
+
+// for(let aux of matrizPersonas){
+//     if (aux.Nombre == personaBuscada){
+//         matrizPropiedades.push(aux.Nombre);
+//         matrizPropiedades.push(aux.edad);
+//         matrizPropiedades.push(aux.sexo);
+//         matrizPropiedades.push(aux.peso);
+//         matrizPropiedades.push(aux.altura);
+//     }
+// }
+
+// console.log("La matriz con las propiedades de la persona es: " + matrizPropiedades);
+
+
+// //Ejercicio 22
+
+// function mensajeClick(){
+//     console.log("Me hiciste click");
+// }
+
+//Ejercicio 23
+
+//var parrafo = document.querySelector('.parrafo');
+
+//let html = parrafo.innerHTML;
+
+ var html = document.getElementsByTagName('p')[0].innerHTML;    //Otra forma más prolija, sin la etiqueta 
+ console.log(html);
+
+ var htmlArray = html.split(' ');
+
+// //console.log(parrafo);
+
+ console.log(htmlArray);
+
+//let palabras = document.getElementById("parrafo");
+
+//console.log(palabras);
+
+htmlArray.onload = function () {
+    htmlArray.forEach (e => {
+        if (e.length >=8){
+          e.style.background-color == "yellow";
+          }
+    });
+
+};
+
+
+
+
+
+
+
+    // for(let aux of htmlArray){
+    //     if (aux.length >=8){
+    //         aux.replace(aux, "<span style=\"background-color:yellow\">"+aux+"</span>");
+    //     } 
+    // } 
+
+// console.log(htmlArray);
+
+
+
+// var stringFinal = htmlArray.join();
+
+// console.log(stringFinal);
