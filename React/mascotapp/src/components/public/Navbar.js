@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useParams, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
        
 
         <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" className="nav-link px-2 text-secondary">Home</a></li>
+          <li><Link to={"/"} className="nav-link">Home</Link></li>
           <li><a href="#" className="nav-link px-2 text-white">Features</a></li>
           <li><a href="#" className="nav-link px-2 text-white">Pricing</a></li>
           <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
@@ -22,7 +23,10 @@ const Navbar = () => {
 
         <div className="text-end">
           <button type="button" className="btn btn-outline-light me-2">Login</button>
-          <button type="button" className="btn btn-warning">Sign-up</button>
+          <button type="button" className="btn btn-warning" >
+          
+          <Link to={`/user-form`} >Sign-up</Link>
+          </button>
         </div>
       </div>
     </div>
